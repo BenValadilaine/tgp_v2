@@ -35,10 +35,13 @@
         </li>
 
         <li class="nav-item">
+          <%= link_to "Déconnexion", session_path(session.id), method: :delete, class: "btn btn-raised btn-warning" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "Connexion", new_session_path, class: "btn btn-raised btn-primary" %>
         </li>
-
       </ul>
+      
     </div>
   </nav>
 

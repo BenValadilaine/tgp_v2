@@ -1,5 +1,6 @@
 class GossipsController < ApplicationController
   def show
+    loggedin?
     @gossip = Gossip.find(params[:id])
     @comment = Comment.new
     @gossip_city = @gossip.user.city
@@ -7,6 +8,7 @@ class GossipsController < ApplicationController
 
 
   def new
+    loggedin?
     @gossip = Gossip.new()
   end
 
@@ -18,7 +20,6 @@ class GossipsController < ApplicationController
       @error = true
       render :action => "new"
     end
-
   end
 
   def edit

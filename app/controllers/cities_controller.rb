@@ -1,5 +1,5 @@
 class CitiesController < ApplicationController
     def show
-        @city = City.find_by(name: params[:id])
-    end 
+        @city = City.find(params[:id])
+    end
 end

@@ -5,7 +5,7 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,42 +18,41 @@
 </head>
 
 <body>
-  <div class = "container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <%= link_to "The Gossip Project", root_path, class: "navbar-brand" %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class = "container">
-        <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav nav justify-content-end">
-            <li class="nav-item">
-              <%= link_to "Team", team_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Contact", contact_path, class: "nav-link" %>
-            </li>
-          </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <%= link_to "The Gossip Project", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class = "container">
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav nav justify-content-end">
+          <li class="nav-item">
+            <%= link_to "Team", team_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Contact", contact_path, class: "nav-link" %>
+          </li>
+        </ul>
 
-          <div class="btn-group">
-            <button class="btn bmd-btn-fab bmd-btn-fab-sm dropdown-toggle" type="button" id="ex3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="material-icons">more_vert</i>
-            </button>
-            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="ex4">
-              <% if loggedin_view? %>
-              <%= link_to "Connexion", new_session_path, class: "dropdown-item" %>
-              <%= link_to "S'inscrire", new_profile_path, class: "dropdown-item" %>
-              <% else %>
-              <% current_user %>
-              <%= link_to "Mon profil", profile_path(@current_user.first_name), class: "dropdown-item" %>
-              <%= link_to "Déconnexion", session_path(session.id), method: :delete, class: "dropdown-item" %>
-              <% end %>
-            </div>
+        <div class="btn-group">
+          <button class="btn bmd-btn-fab bmd-btn-fab-sm dropdown-toggle" type="button" id="ex3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-left" aria-labelledby="ex4">
+            <% if loggedin_view? %>
+            <%= link_to "Connexion", new_session_path, class: "dropdown-item" %>
+            <%= link_to "S'inscrire", new_profile_path, class: "dropdown-item" %>
+            <% else %>
+            <% current_user %>
+            <%= link_to "Mon profil", profile_path(@current_user.first_name), class: "dropdown-item" %>
+            <%= link_to "Déconnexion", session_path(session.id), method: :delete, class: "dropdown-item" %>
+            <% end %>
           </div>
-          </div
         </div>
-      </nav>
-    </div>
+        </div
+      </div>
+    </nav>
+
 
     <%= yield %>
   </body>

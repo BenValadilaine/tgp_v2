@@ -1,5 +1,14 @@
 <h3 class="align-items-center text-center mt=5 mb=5">Crée un compte utilisateur</h3>
 
+
+<% if params[:notice] == "failure" %>
+<div class="container mx-auto">
+  <div class="alert alert-danger mx-auto text-center " style= "width: 30rem;" role="alert">
+    <p>La création de ton profil a échoué, vérifie tes informations</p>
+  </div>
+</div>
+<% end %>
+
 <div class="container mt-5 form-group">
   <%= form_tag profiles_path, method: "post" do %>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

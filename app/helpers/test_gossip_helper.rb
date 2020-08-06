@@ -1,0 +1,2 @@
+module TestGossipHelper
+end

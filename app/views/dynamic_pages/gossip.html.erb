@@ -1,0 +1,11 @@
+
+<div class="container text-center mt-5 mb-5" style ="width: 30rem;">
+  <h1> <%= @a_gossip.title %> </h1>
+  <hr>
+  <h4><%= @a_gossip.content %> </h4>
+  <hr>
+  <h5>Auteur: <%= link_to (@a_gossip.user.first_name), profile_path(@a_gossip.user.first_name)%> </h5>
+  <p><small>Publié le: <%= @a_gossip.created_at %></small> </p>
+  <hr>
+  <p>Lol astéroïde.</p>
+</div>

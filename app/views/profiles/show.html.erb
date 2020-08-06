@@ -1,0 +1,12 @@
+
+  <div class="container text-center mt-5 mb-5" style ="width: 30rem;">
+    <h1> <%= @author.first_name %> <%= @author.last_name %> profile </h1>
+    <hr>
+    <h4><%= @author.description %></h4>
+    <hr>
+    <p> Age : <%= @author.age %> </p>
+    <p> Email address : <%= @author.email %></p>
+    <p> City : <%= link_to (City.find(@author.city_id).name), city_path(City.find(@author.city_id).name)%> - <%= City.find(@author.city_id).zip_code %> </p>
+    <hr>
+    <p>Lol astéroïde.</p>
+  </div>

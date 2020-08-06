@@ -13,7 +13,8 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new(title: params[:gossip_title], content: params[:gossip_content], user: User.last)
+    current_user
+    @gossip = Gossip.new(title: params[:gossip_title], content: params[:gossip_content], user: @current_user)
     if @gossip.save
       redirect_to :controller => "landing_page", :action => "index", :notice => "gossip_saved"
     else
@@ -27,9 +28,12 @@ class GossipsController < ApplicationController
   end
 
   def update
+    current_user
     @gossip = Gossip.find(params[:id])
-    @gossip.update(post_params)
-    redirect_to gossip_path(@gossip)
+    if @current_user == @gossip.user
+      @gossip.update(post_params)
+      redirect_to gossip_path(@gossip)
+    end
   end
 
   def post_params

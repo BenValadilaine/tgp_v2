@@ -25,9 +25,10 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
+    current_user
     @comment = Comment.new
     @gossip = Gossip.find(params[:gossip_id])
-    @comment = Comment.create(content: params[:content], user: User.last, gossip: @gossip)
+    @comment = Comment.create(content: params[:content], user: @current_user, gossip: @gossip)
     redirect_to gossip_path(@gossip.id)
   end
 

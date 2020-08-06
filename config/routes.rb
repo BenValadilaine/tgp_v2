@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   resources :profiles, only: [:show]
   resources :cities, only: [:show]
+  resources :sessions, only: [:new, :create, :destroy]
 end

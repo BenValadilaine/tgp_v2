@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :email, presence: true,
   uniqueness: true,
   format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email invalid" }
-  validates :age, presence: true, length: {minimum: 2} #minimum 10 yo
+  validates :age, length: {minimum: 2} #minimum 10 yo
 
   has_secure_password
 

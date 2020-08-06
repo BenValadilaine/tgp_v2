@@ -1,4 +1,13 @@
+<% if params[:notice] == "login_failure"%>
+<div class="container mx-auto">
+  <div class="alert alert-danger mx-auto text-center " style= "width: 30rem;" role="alert">
+    <p>La connexion a échouée, vérifie tes informations</p>
+  </div>
+</div>
+<% end %>
+
 <div class="container mt-5 form-group">
+  <h2>Connecte-toi</h2>
   <%= form_tag sessions_path, method: "post" do %>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 

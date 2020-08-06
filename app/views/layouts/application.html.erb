@@ -33,15 +33,23 @@
         <li class="nav-item">
           <%= link_to "Contact", contact_path, class: "nav-link" %>
         </li>
-
-        <li class="nav-item">
-          <%= link_to "Déconnexion", session_path(session.id), method: :delete, class: "btn btn-raised btn-warning" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Connexion", new_session_path, class: "btn btn-raised btn-primary" %>
-        </li>
       </ul>
-      
+
+      <div class="btn-group">
+        <button class="btn bmd-btn-fab bmd-btn-fab-sm dropdown-toggle" type="button" id="ex3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="material-icons">more_vert</i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="ex4">
+          <% if loggedin_view? %>
+          <%= link_to "Connexion", new_session_path, class: "dropdown-item" %>
+          <%= link_to "S'inscrire", new_profile_path, class: "dropdown-item" %>
+          <% else %>
+          <%= link_to "Déconnexion", session_path(session.id), method: :delete, class: "dropdown-item" %>
+          <% end %>
+
+        </div>
+      </div>
+
     </div>
   </nav>
 

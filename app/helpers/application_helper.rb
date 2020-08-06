@@ -8,4 +8,12 @@ module ApplicationHelper
       redirect_to new_session_path
     end
   end
+
+  def loggedin_view?
+    puts "-"*30
+    puts session[:user_id]
+    if session[:user_id] == nil
+      flash[:danger] = "Please log in."
+    end
+  end
 end

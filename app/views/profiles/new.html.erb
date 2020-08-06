@@ -1,29 +1,35 @@
+<h3 class="align-items-center text-center mt=5 mb=5">Crée un compte utilisateur</h3>
+
 <div class="container mt-5 form-group">
-  <%= form_tag sessions_path, method: "post" do %>
+  <%= form_tag profiles_path, method: "post" do %>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <%= label_tag 'Ton prénom' %>
-  <%= text_field_tag 'text', @session_first_name, class:"form-control" %>
+  <%= text_field_tag 'first_name', "", class:"form-control" %>
   <br /> <br />
 
   <%= label_tag 'Ton nom' %>
-  <%= text_field_tag 'text', @session_last_name, class:"form-control" %>
+  <%= text_field_tag 'last_name', "", class:"form-control" %>
+  <br /> <br />
+
+  <%= label_tag 'Ton age (tu dois avoir au moins 10 ans)' %>
+  <%= text_field_tag 'age', "", class:"form-control" %>
   <br /> <br />
 
   <%= label_tag 'Ta ville' %>
-  <%= text_field_tag 'text', @session_city, class:"form-control" %>
+  <%= text_field_tag 'city',"", class:"form-control" %>
   <br /> <br />
 
   <%= label_tag 'Ton adresse mail' %>
-  <%= text_field_tag 'email', @session_email, class:"form-control" %>
+  <%= email_field_tag 'email', "", class:"form-control" %>
   <br /> <br />
 
   <%= label_tag 'Ton mot de passe' %>
-  <%= text_field_tag 'password', @session_pwd, class:"form-control" %>
+  <%= password_field_tag 'password', @session_pwd, class:"form-control" %>
   <br /> <br />
 
   <%= label_tag 'Confirme ton mot de passe' %>
-  <%= text_field_tag 'password', @session_pwd2, class:"form-control" %>
+  <%= password_field_tag 'password_confirm', @session_confirm_pwd, class:"form-control" %>
   <br /> <br />
 
   <%= submit_tag "S'inscrire", class:"btn btn-primary"%>

@@ -2,10 +2,14 @@ class ProfilesController < ApplicationController
 
   def show
     loggedin?
+    puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     p params[:id]
     @author = User.find_by(first_name: params[:id])
+    puts "########################################"
+    p @author
     @author_city = City.find(@author.city_id)
-    #{name: City.find(@author.city_id).name, zip_code: City.find(@author.city_id).zip_code, id: City.find(@author.city_id)}
+    puts "==================================="
+    puts @author_city
   end
 
   def new

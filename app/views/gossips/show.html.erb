@@ -14,7 +14,7 @@
         <div class="container align-items-center text-center mt=5 mb=5">
          <% current_user%>
          <% if @current_user == @gossip.user%>
-          <h4>Editer le Gossip</h4>
+            <h4>Editer le Gossip</h4>
             <%= link_to "Editer le gossip", edit_gossip_path(@gossip.id), class: "btn btn-primary mr-1"%>
             <a href="<%= gossip_path(@gossip.id) %>" class= "btn btn-danger mr-1" data-confirm ="Etes-vous sûr ?" data-method="DELETE">Supprimer</a>
           <%end%>
@@ -30,20 +30,20 @@
               <p>Nombre de commentaires: <%= @gossip.comments.length %>
                 <hr>
                 <% @gossip.comments.each do |comment| %>
-                <p class="card-text"> <%= comment.content %></p>
-                <div class="row mb-2">
-                  <div class="col">
-                    <small class="card-text text-end"> <%= comment.user.first_name %> <%= puts " " %> <%= comment.user.last_name %></small> <br>
+                  <p class="card-text"> <%= comment.content %></p>
+                  <div class="row mb-2">
+                    <div class="col">
+                      <small class="card-text text-end"> <%= comment.user.first_name %> <%= puts " " %> <%= comment.user.last_name %></small> <br>
+                    </div>
+                    <div class="col">
+                      <em><small class="card-text text-end"> <%= comment.created_at %></small></em> <br>
+                    </div>
                   </div>
-                  <div class="col">
-                    <em><small class="card-text text-end"> <%= comment.created_at %></small></em> <br>
-                  </div>
-                </div>
-                <% unless @current_user != comment.user%>
-                  <%= link_to "Editer", edit_gossip_comment_path(@gossip.id, comment.id), class: "btn btn-secondary mr-1"%>
-                  <a href="/gossips/<%= @gossip.id %>/comments/<%= comment.id %>" class= "btn btn-danger mr-1" data-confirm ="Etes-vous sûr ?" data-method="DELETE">Supprimer</a>
-                <%end%>
-                <hr>
+                  <% unless @current_user != comment.user%>
+                    <%= link_to "Editer", edit_gossip_comment_path(@gossip.id, comment.id), class: "btn btn-secondary mr-1"%>
+                    <a href="/gossips/<%= @gossip.id %>/comments/<%= comment.id %>" class= "btn btn-danger mr-1" data-confirm ="Etes-vous sûr ?" data-method="DELETE">Supprimer</a>
+                  <%end%>
+                  <hr>
                 <% end %>
               </div>
             </div>

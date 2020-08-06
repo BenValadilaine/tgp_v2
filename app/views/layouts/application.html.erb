@@ -41,14 +41,19 @@
         </button>
         <div class="dropdown-menu dropdown-menu-left" aria-labelledby="ex4">
           <% if loggedin_view? %>
-          <%= link_to "Connexion", new_session_path, class: "dropdown-item" %>
-          <%= link_to "S'inscrire", new_profile_path, class: "dropdown-item" %>
+            <%= link_to "Connexion", new_session_path, class: "dropdown-item" %>
+            <%= link_to "S'inscrire", new_profile_path, class: "dropdown-item" %>
           <% else %>
-          <%= link_to "Déconnexion", session_path(session.id), method: :delete, class: "dropdown-item" %>
+            <% current_user %>
+            <%= link_to "Mon profil", profile_path(@current_user.first_name), class: "dropdown-item" %>
+            <%= link_to "Déconnexion", session_path(session.id), method: :delete, class: "dropdown-item" %>
           <% end %>
-
         </div>
       </div>
+      
+     
+
+      
 
     </div>
   </nav>

@@ -10,7 +10,7 @@
         <h5> City: <%= link_to (@gossip_city.name), city_path(@gossip_city.id)%> - <%= @gossip_city.zip_code %> </h5>
         <p><small>Publié le: <%= @gossip.created_at %></small> </p>
         <div class="container">
-          <%= link_to "coeur  #{@gossip.likes.length}", likes_path(@gossip.id), class: "btn btn-secondary", method: :post %>
+            <%= link_to "  #{@gossip.likes.length}  ", likes_path(@gossip.id), class: "btn btn-secondary far fa-heart", method: :post %>
         </div>
         <hr>
         <p>Lol astéroïde.</p>

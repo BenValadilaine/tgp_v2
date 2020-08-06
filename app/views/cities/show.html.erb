@@ -12,6 +12,9 @@
         <h3 class="card-title"><%= gossip.title %></h3>
         <h6 class="card-subtitle mb-2 text-muted"><%= gossip.created_at %></h6>
         <p class="card-text"><%= gossip.content %></p>
+        <div class="container">
+          <%= link_to "coeur  #{gossip.likes.length}", likes_path(gossip.id), class: "btn btn-secondary", method: :post %>
+        </div>
         <%= link_to (gossip.user.first_name), profile_path(gossip.user.first_name), class: "btn btn-primary mr-1"%>
         <%= link_to ("Voir le potin"), gossip_path(gossip.id), class: "btn btn-primary ml-1"%>
       </div>

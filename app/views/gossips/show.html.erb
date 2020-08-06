@@ -9,6 +9,9 @@
         <h5>Auteur: <%= link_to (@gossip.user.first_name), profile_path(@gossip.user.first_name)%> </h5>
         <h5> City: <%= link_to (@gossip_city.name), city_path(@gossip_city.id)%> - <%= @gossip_city.zip_code %> </h5>
         <p><small>Publié le: <%= @gossip.created_at %></small> </p>
+        <div class="container">
+          <%= link_to "coeur  #{@gossip.likes.length}", likes_path(@gossip.id), class: "btn btn-secondary", method: :post %>
+        </div>
         <hr>
         <p>Lol astéroïde.</p>
         <div class="container align-items-center text-center mt=5 mb=5">

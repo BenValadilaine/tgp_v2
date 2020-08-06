@@ -5,6 +5,7 @@ City.destroy_all
 PrivateMessage.destroy_all
 JoinTableGossipTag.destroy_all
 Comment.destroy_all
+Like.destroy_all
 
 Faker::Config.locale="fr"
 
@@ -19,6 +20,9 @@ end
   user.update(email:"#{user.first_name.downcase}.#{user.last_name.downcase}@protonmail.com")
 end
 User.create(first_name: "anonymous", last_name: "anonymous", city: City.all.sample, email: "anonymous@anonymous.net", description: Faker::Movies::VForVendetta.quote, age: rand(16..77), password: "123456")
+User.create(first_name: "Ben", last_name: "Vlad", city: City.all.sample, email: "ben@vlad.net", description: Faker::Movies::VForVendetta.quote, age: 42, password: "azerty")
+User.create(first_name: "Juliet", last_name: "DeR", city: City.all.sample, email: "juju@der.net", description: Faker::Movies::VForVendetta.quote, age: 10, password: "azerty")
+User.create(first_name: "momo", last_name: "dbz", city: City.all.sample, email: "momo@dbz.net", description: Faker::Movies::VForVendetta.quote, age: 12, password: "azerty")
 
 #Create 20 gossips
 20.times do
@@ -44,4 +48,9 @@ end
 #comments
 50.times do
   cmt = Comment.create(content: Faker::Quote.singular_siegler, user: User.all.sample, gossip: Gossip.all.sample)
+end
+
+#likes
+50.times do
+  like = Like.create(user: User.all.sample, gossip: Gossip.all.sample)
 end

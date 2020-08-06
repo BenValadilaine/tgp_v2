@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :likes, except: [:index, :edit, :update]
   get '/team', to: 'static_pages#team'
   get '/contact', to: 'static_pages#contact'
   root 'landing_page#index'

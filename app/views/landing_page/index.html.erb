@@ -30,19 +30,22 @@
   <h3>Les potins déjà en ligne :</h3>
   <div class="row">
     <% Gossip.all.each do |gossip| %>
-      <div class="card-deck m-3 text-center">
-        <div class="card" style="width: 19rem;">
-          <div class="card-body">
-            <h3 class="card-title"><%= gossip.title %></h3>
-            <p>Nombre de commentaires: <%= gossip.comments.length %>
+    <div class="card-deck m-3 text-center">
+      <div class="card" style="width: 19rem;">
+        <div class="card-body">
+          <h3 class="card-title"><%= gossip.title %></h3>
+          <p>Nombre de commentaires: <%= gossip.comments.length %>
             <hr>
             <h6 class="card-subtitle mb-2 text-muted"><%= gossip.created_at %></h6>
             <p class="card-text"><%= gossip.content %></p>
             <%= link_to (gossip.user.first_name), profile_path(gossip.user.first_name), class: "btn btn-primary mr-1"%>
             <%= link_to ("Voir le potin"), gossip_path(gossip.id), class: "btn btn-primary ml-1"%>
+            <div class="container">
+              <%= link_to "  #{gossip.likes.length}  ", likes_path(gossip.id), class: "btn btn-secondary far fa-heart", method: :post %>
+            </div>
           </div>
         </div>
       </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>

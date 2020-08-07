@@ -41,9 +41,11 @@
   <%= password_field_tag 'password_confirm', @session_confirm_pwd, class:"form-control" %>
   <br /> <br />
 
-  <%= label_tag 'Se souvenir de moi' %>
-  <%= check_box_tag :remember_me, :checked => false, class:"form-check-label" %>
-  <br /> <br />
+  <div class="form check">
+    <%= check_box_tag :remember_me, :checked => false, class:"form-check-label" %>
+    <%= label_tag :Se_souvenir_de_moi %>
+    <br /> <br />
+  </div>
 
   <%= submit_tag "S'inscrire", class:"btn btn-primary"%>
 

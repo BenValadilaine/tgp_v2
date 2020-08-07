@@ -43,10 +43,8 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-group :production do
-  # Use postgresql as the database for Active Record
-  gem 'pg', '>= 0.18', '< 2.0'
-end
+# Use postgresql as the database for Active Record
+gem 'pg', '>= 0.18', '< 2.0'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

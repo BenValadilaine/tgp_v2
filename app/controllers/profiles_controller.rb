@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
     if params[:password] == params[:password_confirm] && @user.save
       redirect_to root_path :notice => "success"
     else
-     redirect_to new_profile_path :notice => "failure"
+      redirect_to new_profile_path :notice => "failure"
     end
 
 

@@ -14,7 +14,7 @@ class LikesController < ApplicationController
   # POST /likes
   # POST /likes.json
   def create
-    current_user
+    @current_user = current_user()
     @like = Like.new(user: @current_user, gossip: Gossip.find(params[:format]))
     if Like.find_by(user: @current_user, gossip: Gossip.find(params[:format])) == nil
       @like.save
@@ -27,6 +27,7 @@ class LikesController < ApplicationController
   # DELETE /likes/1
   # DELETE /likes/1.json
   def destroy
+    @current_user = current_user()
     Like.find_by(user: @current_user, gossip: Gossip.find(params[:format])).destroy
   end
 
